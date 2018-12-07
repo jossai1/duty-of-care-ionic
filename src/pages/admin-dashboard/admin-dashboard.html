@@ -1,0 +1,60 @@
+<!--
+  Generated template for the AdminDashboardPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Admin Dashboard</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row *ngIf="!showDashboard">
+      <ion-col width-100>
+        <ion-list>
+          <ion-item>
+            <ion-label fixed>
+              Username
+            </ion-label>
+            <ion-input [(ngModel)]="username" name="username" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label fixed>
+              Password
+            </ion-label>
+            <ion-input [(ngModel)]="password" name="password" type="password"></ion-input>
+          </ion-item>
+            <button ion-button type="submit" block (click)="adminLogin()">Login</button>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="showDashboard">
+    <!--<ion-row>-->
+      <ion-item><h1>Care Staff Activity</h1></ion-item>
+      <table *ngIf="carerSitArray">
+        <tr>
+          <th>Sit ID</th>
+          <th>Carer Name</th>
+          <th>Carer ID</th>
+          <th>Left Status</th>
+          <th>Home Status</th>
+        </tr>
+        <tr *ngFor="let cs of carerSitArray">
+         <td>{{cs.sitID}}</td>
+          <td>{{getCarerObj(cs.carerID).name}}</td>
+          <td>{{cs.carerID}}</td>
+          <td [ngClass]="cs.leftStatus ? 'green' : 'red'">{{cs.leftStatus}}</td>
+          <td  [ngClass]="getCarerObj(cs.carerID).homeStatus ? 'green' : 'red'"> {{getCarerObj(cs.carerID).homeStatus}}</td>
+        </tr>
+      </table>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

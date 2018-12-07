@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Sits</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <!--<h2>Welcome to Julia's House App</h2>-->
+  <ion-list-header>
+    Sits for the Day
+  </ion-list-header>
+
+  <ion-list>
+    <ion-item *ngFor="let sit of sitsArray">
+      <!--<ion-thumbnail item-start>-->
+        <!--<img src="img/thumbnail-totoro.png">-->
+      <!--</ion-thumbnail>-->
+      <ion-icon name="calendar" item-start color="primary"></ion-icon>
+      <h2>Sit #{{sit.sitID}}</h2>
+      <p>{{sit.time}} | {{sit.place}}  </p>
+      <button ion-button clear item-end (click)="goToSitDetailPage(sit.sitID)">View</button>
+    </ion-item>
+  </ion-list>
+
+  <!--<ion-item-group>-->
+    <!--<button ion-item *ngFor="let sit of sitsArray" (click)="goToSitDetailPage(sit.sitID)">-->
+      <!--<ion-icon name="calendar" item-start color="primary"></ion-icon>-->
+      <!--<ion-label>Sit #{{sit.sitID}} </ion-label>-->
+      <!--<ion-note item-end> {{sit.time}}</ion-note>-->
+    <!--</button>-->
+  <!--</ion-item-group>-->
+  <!--<ion-item-divider>-->
+    <!--Tommorrow-->
+  <!--</ion-item-divider>-->
+  <!--<ion-item-group>-->
+    <!--<ion-item>-->
+      <!--<ion-icon name="plane" item-start color="danger"></ion-icon>-->
+      <!--<ion-label>Airplane Mode</ion-label>-->
+      <!--<ion-toggle color="secondary"></ion-toggle>-->
+    <!--</ion-item>-->
+
+    <!--<button ion-item>-->
+      <!--<ion-icon name="wifi" item-start color="primary"></ion-icon>-->
+      <!--<ion-label>Wi-Fi</ion-label>-->
+      <!--<ion-note item-end>The Interwebz</ion-note>-->
+    <!--</button>-->
+
+    <!--<button ion-item>-->
+      <!--<ion-icon name="bluetooth" item-start color="primary"></ion-icon>-->
+      <!--<ion-label>Bluetooth</ion-label>-->
+      <!--<ion-note item-end>Off</ion-note>-->
+    <!--</button>-->
+  <!--</ion-item-group>-->
+</ion-content>
